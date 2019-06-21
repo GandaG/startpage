@@ -1,0 +1,91 @@
+/* Red borders on visible elements - handy for debugging */
+/* * { border: 1px solid red; } */
+
+:root {
+    --bg-color: #223030;
+    --text-color: #dddddd;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+
+    background-color: var(--bg-color);
+    background-size: cover;
+    color: var(--text-color);
+
+    font-family: 'Raleway', sans-serif;
+    font-size: 22px;
+
+    animation: fadein 1s;
+}
+
+#welcome-string {
+    padding-top: 10vh;
+    padding-bottom: 5vh;
+    text-align: center;
+    font-weight: 200;
+    font-size: 4rem;
+    margin-bottom: 0;
+}
+
+#content {
+    text-align: center;
+}
+
+.group {
+    display: inline-block;
+    vertical-align: middle;
+    width: 15%;
+}
+.group img {
+    width: 80%;
+}
+
+a, a:hover {
+    transition: all 0.4s ease;
+}
+a {
+    color: var(--text-color);
+    text-decoration: none;
+    opacity: 0.5;
+}
+a:hover {
+    opacity: 1;
+}
+.group a {
+    padding: 0.3rem 0;
+    padding-left: 0;
+}
+
+.slimScrollDiv {
+    margin: auto;
+    margin-top: 40px;
+}
+.title {
+    font-size: 20px;
+    font-weight: 350;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+.summary {
+    font-size: 15px;
+    margin-top: 5px;
+    margin-bottom: 30px;
+    vertical-align: middle;
+}
+.feed_favicon {
+    height: 18px;
+    vertical-align: middle;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+@keyframes pulse {
+    0% { opacity: 0; }
+    20% { opacity: 0.3; }
+    80% { opacity: 0.3; }
+    100%   { opacity: 0; }
+}
