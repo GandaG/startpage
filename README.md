@@ -1,6 +1,6 @@
 # Startpage
 
-![Example_Gif](docs/example.gif)
+![Example](docs/example.jpg)
 
 It's a startpage... with feeds!
 

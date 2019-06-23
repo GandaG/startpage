@@ -163,4 +163,10 @@ $(document).ready(function () {
             wheelStep: '5',
         });
     });
+
+    $("#search-bar").keydown(function (e) {
+        if (e.keyCode === 13) {
+            window.open("http://www.google.com/#q=" + encodeURIComponent($("#search-bar").val()), "_self");
+        }
+    });
 });
