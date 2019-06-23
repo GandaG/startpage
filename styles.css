@@ -21,6 +21,7 @@ body {
 }
 
 #welcome-string {
+    height: 10vh;
     padding-top: 10vh;
     padding-bottom: 5vh;
     text-align: center;
@@ -30,37 +31,25 @@ body {
 }
 
 #content {
+    height: 15vh;
     text-align: center;
+    margin: auto;
+    padding: 2.5vh;
 }
-
 .group {
     display: inline-block;
     vertical-align: middle;
-    width: 15%;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    width: 15vh;
 }
 .group img {
-    width: 80%;
-}
-
-a, a:hover {
-    transition: all 0.4s ease;
-}
-a {
-    color: var(--text-color);
-    text-decoration: none;
-    opacity: 0.5;
-}
-a:hover {
-    opacity: 1;
-}
-.group a {
-    padding: 0.3rem 0;
-    padding-left: 0;
+    height: 100%;
 }
 
 .slimScrollDiv {
     margin: auto;
-    margin-top: 40px;
+    margin-top: 2.5vh;
 }
 .title {
     font-size: 20px;
@@ -77,6 +66,18 @@ a:hover {
 .feed_favicon {
     height: 18px;
     vertical-align: middle;
+}
+
+a, a:hover {
+    transition: all 0.4s ease;
+}
+a {
+    color: var(--text-color);
+    text-decoration: none;
+    opacity: 0.5;
+}
+a:hover {
+    opacity: 1;
 }
 
 @keyframes fadein {

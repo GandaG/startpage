@@ -11,10 +11,10 @@ const BG_LIST = [
 const NAME = "Daniel";
 const WELCOME_MESSAGE_TEMPLATE = ["night", "morning", "afternoon", "evening"];
 const SHORTCUT_MAP = {
-    "github.com": "assets/github.png",
-    "www.reddit.com": "assets/reddit.png",
-    "www.youtube.com": "assets/youtube.png",
-    "mail.google.com": "assets/gmail.png",
+    "github.com": "https://camo.githubusercontent.com/d0518022b7a02d405ad5112a0c8aa455cbfe952e/68747470733a2f2f6564656e742e6769746875622e696f2f537570657254696e7949636f6e732f696d616765732f7376672f6769746875622e737667",
+    "www.reddit.com": "https://camo.githubusercontent.com/2ed658492cb094825d26b06c1275a7e0414f32e4/68747470733a2f2f6564656e742e6769746875622e696f2f537570657254696e7949636f6e732f696d616765732f7376672f7265646469742e737667",
+    "www.youtube.com": "https://camo.githubusercontent.com/0f31a4f7adb78461ca03dfaad4a138eedf0d14e0/68747470733a2f2f6564656e742e6769746875622e696f2f537570657254696e7949636f6e732f696d616765732f7376672f796f75747562652e737667",
+    "mail.google.com": "https://camo.githubusercontent.com/5bf17041186bbc591a286709593ee76baf2e4711/68747470733a2f2f6564656e742e6769746875622e696f2f537570657254696e7949636f6e732f696d616765732f7376672f676d61696c2e737667",
 };
 const HOST_MAP = {
     "www.reddit.com": "Reddit",
@@ -40,7 +40,7 @@ function setup_bg() {
 
 function setup_message() {
     let curHours = new Date().getHours();
-    curHours = Math.floor(curHours/6); // Simply dividing current hours by 6 proves to be a good enough aproximation.
+    curHours = Math.floor(curHours / 6); // Simply dividing current hours by 6 proves to be a good enough aproximation.
     if (curHours == 4) curHours = 3;
     let welcome = "Good " + WELCOME_MESSAGE_TEMPLATE[curHours] + ", " + NAME;
     document.getElementById("welcome-string").innerHTML = welcome;
@@ -49,7 +49,7 @@ function setup_message() {
 function setup_groups() {
     let $container = document.getElementById("content");
 
-    for (var key in SHORTCUT_MAP){
+    for (var key in SHORTCUT_MAP) {
         let value = SHORTCUT_MAP[key];
 
         let group = document.createElement("div");
@@ -89,7 +89,7 @@ class FeedItem {
 
 function feed_add(title, description, url) {
     let feed = document.getElementById("feed_list");
-    
+
     let link_elem = document.createElement("a");
     link_elem.setAttribute("href", url);
     feed.appendChild(link_elem);
@@ -123,14 +123,14 @@ async function feed_mix() {
     let feed_list = await Promise.all(promise_list.map(p => p.catch(error => null)));
     for (let i in feed_list) {
         let feed = feed_list[i];
-        if (feed == null) {continue;}
+        if (feed == null) { continue; }
         // console.log(feed);
         for (let entry of feed.entries) {
             let feed_item = new FeedItem(entry.title, entry.link, new Date(entry.date));
             mixed_feeds.push(feed_item);
         }
     }
-    mixed_feeds.sort(function(a, b){
+    mixed_feeds.sort(function (a, b) {
         return b.mseconds - a.mseconds;
     })
     return mixed_feeds;
@@ -145,19 +145,22 @@ function setup_feed() {
     })
 }
 
-function main(){
+function main() {
     setup_bg();
     setup_message();
     setup_groups();
     setup_feed();
 }
 
-$(function(){
-	$('#feed_list').slimScroll({
-        width: '25vw',
-        height: '45vh',
-        color: '#ffffff',
-	});
-});
-
 main();
+
+$(document).ready(function () {
+    $(function () {
+        $('#feed_list').slimScroll({
+            width: '25vw',
+            height: '40vh',
+            color: '#ffffff',
+            wheelStep: '5',
+        });
+    });
+});
